@@ -146,8 +146,10 @@ class YahooFinanceCSVData(feed.CSVDataBase):
 
         if self.p.swapcloses:  # swap closing prices if requested
             c, adjustedclose = adjustedclose, c
-
-        adjfactor = c / adjustedclose
+        if adjustedclose == 0:
+          adjfactor = np.nan
+        else:
+          adjfactor = c / adjustedclose
 
         # in v7 "adjusted prices" seem to be given, scale back for non adj
         if self.params.adjclose:
