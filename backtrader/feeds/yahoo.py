@@ -23,7 +23,7 @@ from __future__ import (absolute_import, division, print_function,
 
 import collections
 from datetime import date, datetime
-from numpy import np
+import numpy as np
 import io
 import itertools
 
